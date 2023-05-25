@@ -48,8 +48,8 @@ public class SecurityConfig {
   SecurityFilterChain configureSecurity(HttpSecurity http) throws Exception {
       http.authorizeHttpRequests() //
               .requestMatchers("/login").permitAll() //
-              .requestMatchers("/", "/search").authenticated() //
-              .requestMatchers(HttpMethod.GET, "/api/**").authenticated() //
+              .requestMatchers("/search").authenticated() //
+              .requestMatchers(HttpMethod.GET, "/api/**").authenticated()//
               .requestMatchers("/admin").hasRole("ADMIN") //
               .requestMatchers(HttpMethod.POST, "/delete/**", "/new-video").authenticated() //
               .anyRequest().denyAll() //
